@@ -68,5 +68,5 @@ def main():
         print(f"Pago aceptado. Su vuelto es de ${pago - total:.2f}")
         print("¡Gracias por su alquiler!")
 
-if __name == "__main__":
- main()
+if __name__ == "__main__":
+     main()
