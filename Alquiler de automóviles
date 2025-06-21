@@ -1,5 +1,5 @@
 def calcular_precio(dias, periodo):
-     precios={
+    precios={
         "mañana": 5000,
         "tarde": 7000,
         "noche": 10000,
