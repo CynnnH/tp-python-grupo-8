@@ -69,4 +69,4 @@ def main():
         print("¡Gracias por su alquiler!")
 
 if __name == "__main__":
-     main()
+ main()
