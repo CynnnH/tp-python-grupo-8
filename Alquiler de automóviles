@@ -1,0 +1,72 @@
+def calcular_precio(dias, periodo):Add commentMore actions
+    precios={
+        "mañana": 5000,
+        "tarde": 7000,
+        "noche": 10000,
+        "completo": 20000
+    }
+    return precios.get(periodo.lower(), 0) * dias
+
+def main():
+    print("Bienvenido al sistema de alquiler de vehículos\n")
+    #solicitar DNI
+    dni=input("Ingrese su DNI:")
+
+    # Entrada de datos del cliente
+    edad = int(input("Ingrese su edad: "))
+    if edad < 25:
+        print("No cumple con la edad mínima para alquilar.")
+        return
+
+    licencia = input("¿Tiene licencia válida? (si/no): ").lower()
+    if licencia != "si":
+        print("No se puede alquilar sin licencia válida.")
+        return
+
+    ciudad = input("¿Está alquilando en Bariloche? (si/no): ").lower()
+    if ciudad == "si":
+        permiso = input("¿Tiene permiso municipal? (si/no): ").lower()
+        if permiso != "si":
+            print("No se puede alquilar sin permiso municipal en Bariloche.")
+            return
+
+    disponible = input("¿El vehículo está disponible? (si/no): ").lower()
+    if disponible != "si":
+        print("No se puede alquilar, el vehículo no está disponible.")
+        return
+
+    tipo_cliente = input("Tipo de cliente (regular/vip): ").lower()
+    temporada = input("¿Es temporada alta? (si/no): ").lower()
+    desea_seguro = input("¿Desea seguro? (si/no): ").lower()
+
+    # Entrada de alquiler
+    dias = int(input("¿Cuántos días desea alquilar?: "))
+    periodo = input("¿Qué período desea (mañana/tarde/noche/completo)?: ").lower()
+
+    # Cálculo del precio base
+    total = calcular_precio(dias, periodo)
+
+    # Descuento VIP
+    if tipo_cliente == "vip":
+        total *= 0.9  # 10% de descuento
+
+    # Recargo temporada alta
+    if temporada == "si":
+        total *= 1.2  # 20% de recargo
+
+    # Seguro
+    if desea_seguro == "si":
+        total += 3000 * dias  # Por cada día de alquiler
+
+    print(f"\nEl total a pagar es: ${total:.2f}")
+
+    # Verificación de pago
+    pago = float(input("Ingrese el monto con el que va a pagar: $"))
+    if pago < total:
+        print(f"Pago insuficiente. Le faltan ${total - pago:.2f}")
+    else:
+        print(f"Pago aceptado. Su vuelto es de ${pago - total:.2f}")
+        print("¡Gracias por su alquiler!")
+
+if __name == "__main__":
+    main()
