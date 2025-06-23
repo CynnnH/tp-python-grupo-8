@@ -1,6 +1,6 @@
 #Programa en Python: Alquiler de vehiculos
 #Grupo 8
-#Integrantes: Buceta Lucas y Horisznyj Cyntia A
+#Integrantes: Buceta Lucas, Horisznyj Cyntia A
 
 def calcular_precio(dias, periodo):
     precios={
